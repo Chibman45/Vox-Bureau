@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { Header } from "@/components/header";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 const successStories = [
   {
@@ -70,30 +72,30 @@ export default function SuccessStoriesPage() {
         </section>
 
         <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6 max-w-4xl mx-auto">
-            <Accordion type="single" collapsible className="w-full">
-              {successStories.map((story, index) => (
-                <AccordionItem value={`item-${index}`} key={index}>
-                  <AccordionTrigger className="font-headline text-lg hover:no-underline">
-                    {story.client}
-                  </AccordionTrigger>
-                  <AccordionContent className="space-y-4 text-base">
-                    <div>
-                      <h3 className="font-bold text-primary/80 mb-2">The Challenge</h3>
-                      <p className="text-muted-foreground">{story.challenge}</p>
-                    </div>
-                     <div>
-                      <h3 className="font-bold text-primary/80 mb-2">Our Solution</h3>
-                      <p className="text-muted-foreground">{story.solution}</p>
-                    </div>
-                     <div>
-                      <h3 className="font-bold text-primary/80 mb-2">The Outcome</h3>
-                      <p className="text-muted-foreground">{story.outcome}</p>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <div className="container px-4 md:px-6 max-w-4xl mx-auto space-y-8">
+            {successStories.map((story, index) => (
+              <Card key={index} className="shadow-md hover:shadow-xl transition-shadow duration-300">
+                <CardHeader>
+                  <CardTitle className="font-headline text-2xl text-primary">{story.client}</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div>
+                    <h3 className="font-bold text-lg text-primary/90 mb-2">The Challenge</h3>
+                    <p className="text-muted-foreground leading-relaxed">{story.challenge}</p>
+                  </div>
+                  <Separator />
+                  <div>
+                    <h3 className="font-bold text-lg text-accent mb-2">Our Solution</h3>
+                    <p className="text-muted-foreground leading-relaxed">{story.solution}</p>
+                  </div>
+                   <Separator />
+                  <div>
+                    <h3 className="font-bold text-lg text-emerald-600 mb-2">The Outcome</h3>
+                    <p className="text-muted-foreground leading-relaxed">{story.outcome}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </section>
       </main>
