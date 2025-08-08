@@ -12,16 +12,16 @@ import {
 
 export function Header() {
   const navLinks = [
-    { href: "#services", label: "Services" },
-    { href: "#why-us", label: "Why Us" },
-    { href: "#success-stories", label: "Success Stories" },
-    { href: "#contact", label: "Contact" },
+    { href: "/#services", label: "Services" },
+    { href: "/#why-us", label: "Why Us" },
+    { href: "/success-stories", label: "Success Stories" },
+    { href: "/#contact", label: "Contact" },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
-        <Link href="#" className="flex items-center gap-2 font-bold text-lg text-primary">
+        <Link href="/" className="flex items-center gap-2 font-bold text-lg text-primary">
           <Shield className="h-6 w-6" />
           <span className="font-headline">Vox Bureau</span>
         </Link>
@@ -38,7 +38,7 @@ export function Header() {
         </nav>
         <div className="hidden md:block">
             <Button asChild>
-                <Link href="#contact">Get a Quote</Link>
+                <Link href="/#contact">Get a Quote</Link>
             </Button>
         </div>
         <div className="md:hidden">
@@ -51,10 +51,12 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right">
               <div className="flex flex-col gap-6 pt-12 text-center">
-                <Link href="#" className="flex items-center justify-center gap-2 font-bold text-lg text-primary mb-6">
-                    <Shield className="h-6 w-6" />
-                    <span className="font-headline">Vox Bureau</span>
-                </Link>
+                <SheetClose asChild>
+                  <Link href="/" className="flex items-center justify-center gap-2 font-bold text-lg text-primary mb-6">
+                      <Shield className="h-6 w-6" />
+                      <span className="font-headline">Vox Bureau</span>
+                  </Link>
+                </SheetClose>
                 {navLinks.map((link) => (
                   <SheetClose asChild key={link.href}>
                     <Link
@@ -67,7 +69,7 @@ export function Header() {
                 ))}
                  <Button asChild className="mt-4">
                     <SheetClose asChild>
-                        <Link href="#contact">Get a Quote</Link>
+                        <Link href="/#contact">Get a Quote</Link>
                     </SheetClose>
                 </Button>
               </div>
