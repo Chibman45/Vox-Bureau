@@ -163,7 +163,7 @@ export default function Home() {
               Our commitment to excellence has earned us the trust of high-level government bodies and national agencies. See the impact we've made.
             </p>
             <Button variant="secondary" size="lg" asChild className="mt-8">
-              <Link href="#">View Success Stories</Link>
+              <Link href="/success-stories">View Success Stories</Link>
             </Button>
           </div>
         </section>
