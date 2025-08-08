@@ -71,15 +71,15 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
+                <div className="space-y-2 animate-in fade-in-up duration-500">
                   <h1 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl xl:text-6xl/none text-primary">
                     Expertise in Institutional Communication
                   </h1>
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                  <p className="max-w-[600px] text-muted-foreground md:text-xl animate-in fade-in-up duration-500 delay-200">
                     Vox Bureau offers expert communication and institutional representation solutions tailored for high-level government bodies and national agencies.
                   </p>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                <div className="flex flex-col gap-2 min-[400px]:flex-row animate-in fade-in-up duration-500 delay-400">
                   <Button size="lg" asChild>
                     <Link href="/#contact">Request a Consultation</Link>
                   </Button>
@@ -94,7 +94,7 @@ export default function Home() {
                 height="400"
                 alt="Hero"
                 data-ai-hint="business meeting"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square shadow-lg"
+                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square shadow-lg animate-in fade-in-up duration-500 delay-500"
               />
             </div>
           </div>
@@ -210,3 +210,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
