@@ -19,14 +19,11 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Header } from "@/components/header";
 import { generateStory } from "@/ai/flows/generate-story-flow";
+import { GenerateStoryInputSchema } from "@/ai/schemas";
 import Link from "next/link";
 
 
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-});
+const formSchema = GenerateStoryInputSchema;
 
 export default function SuccessStoriesPage() {
   const [story, setStory] = useState("");

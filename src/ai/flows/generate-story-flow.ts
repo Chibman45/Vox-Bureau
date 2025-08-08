@@ -8,17 +8,7 @@
  */
 
 import { ai } from '@/ai/genkit';
-import { z } from 'genkit';
-
-export const GenerateStoryInputSchema = z.object({
-  name: z.string().describe('The name of the client.'),
-});
-export type GenerateStoryInput = z.infer<typeof GenerateStoryInputSchema>;
-
-export const GenerateStoryOutputSchema = z.object({
-  story: z.string().describe('The generated success story.'),
-});
-export type GenerateStoryOutput = z.infer<typeof GenerateStoryOutputSchema>;
+import { GenerateStoryInput, GenerateStoryInputSchema, GenerateStoryOutput, GenerateStoryOutputSchema } from '../schemas';
 
 
 const storyPrompt = ai.definePrompt({
