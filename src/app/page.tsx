@@ -81,10 +81,10 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button size="lg" asChild>
-                    <Link href="#contact">Request a Consultation</Link>
+                    <Link href="/#contact">Request a Consultation</Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild>
-                    <Link href="#services">Explore Services</Link>
+                    <Link href="/#services">Explore Services</Link>
                   </Button>
                 </div>
               </div>

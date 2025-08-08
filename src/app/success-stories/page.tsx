@@ -1,55 +1,55 @@
 "use client";
 
-import { useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { Loader2 } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Header } from "@/components/header";
-import { generateStory } from "@/ai/flows/generate-story-flow";
-import { GenerateStoryInputSchema } from "@/ai/schemas";
 import Link from "next/link";
+import { Header } from "@/components/header";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
+const successStories = [
+  {
+    client: "National Directorate of Urban Planning",
+    challenge:
+      "The National Directorate of Urban Planning (NDUP) was struggling with poor public perception after a series of controversial zoning changes. Their core messages were failing to resonate with community stakeholders, leading to widespread project opposition and delays.",
+    solution:
+      "Vox Bureau was engaged to manage stakeholder relationships and refine their communication strategy. We developed a series of clear, transparent presentations and facilitated town hall meetings where NDUP officials could address public concerns directly. By acting as a trusted intermediary, we helped rebuild trust and foster constructive dialogue.",
+    outcome:
+      "Within six months, public trust in the NDUP increased by 25%, and two major infrastructure projects received community approval, unlocking over $50 million in development funds.",
+  },
+  {
+    client: "Ministry of Health & Wellness",
+    challenge:
+      "During a national health crisis, the Ministry of Health & Wellness faced challenges with disjointed internal messaging. Critical information was not being disseminated effectively between departments, causing confusion and slowing down response times.",
+    solution:
+      "Our team was brought in to provide proxy representation in daily crisis meetings, ensuring that the Minister’s directives were clearly understood and acted upon. We implemented a streamlined reporting system and drafted all internal communications to ensure consistency and clarity, freeing up ministry leadership to focus on strategic decisions.",
+    outcome:
+      "Internal communication efficiency improved by 40%, and the Ministry was able to launch a successful public vaccination campaign two weeks ahead of schedule.",
+  },
+  {
+    client: "Federal Agency for Innovation",
+    challenge:
+      "The Federal Agency for Innovation (FAI) had a groundbreaking research proposal but failed to secure a critical international grant due to a poorly written application. The submission was dense, lacked a compelling narrative, and failed to meet key compliance requirements.",
+    solution:
+      "Vox Bureau's proposal writing team completely overhauled the grant application. We restructured the narrative to highlight the project's strategic importance, wrote a powerful executive summary, and ensured every section was fully compliant with the grant's stringent guidelines. Our professional speechwriters also prepared the FAI's director for the final presentation to the grant committee.",
+    outcome:
+      "The revised proposal was a success, securing a $15 million grant that has since positioned the nation as a leader in technological innovation.",
+  },
+  {
+    client: "Department of Environmental Protection",
+    challenge:
+      "The Department of Environmental Protection (DEP) needed to communicate a new set of complex environmental regulations to industrial stakeholders. Their initial attempts were met with resistance and misunderstanding, threatening to derail the entire policy rollout.",
+    solution:
+      "We developed a series of targeted presentations and compliance communication materials tailored to different industry segments. Our team also provided proxy representation at key industry briefings, patiently explaining the new regulations and gathering feedback. This allowed the DEP to make minor adjustments that demonstrated their willingness to partner with the private sector.",
+    outcome:
+      "The new regulations were adopted with a 95% compliance rate within the first year, and the DEP was praised for its collaborative approach to policymaking.",
+  },
+];
 
-const formSchema = GenerateStoryInputSchema;
 
 export default function SuccessStoriesPage() {
-  const [story, setStory] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-    },
-  });
-
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsLoading(true);
-    setStory("");
-    try {
-      const result = await generateStory({ name: values.name });
-      setStory(result.story);
-    } catch (error) {
-      console.error("Failed to generate story:", error);
-      setStory("Sorry, we couldn't generate a story at this time. Please try again later.");
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
   return (
     <div className="flex flex-col min-h-[100dvh] bg-background">
       <Header />
@@ -61,8 +61,8 @@ export default function SuccessStoriesPage() {
                 <h1 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl text-primary">
                   Client Success Stories
                 </h1>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  See how we've helped institutions like yours succeed. Enter your name to generate a personalized story.
+                <p className="max-w-[800px] text-muted-foreground md:text-xl">
+                  Our strategies deliver measurable results. Discover how we have helped public institutions overcome their most pressing communication and representation challenges.
                 </p>
               </div>
             </div>
@@ -70,63 +70,40 @@ export default function SuccessStoriesPage() {
         </section>
 
         <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6 max-w-2xl mx-auto">
-            <Card>
-              <CardHeader>
-                <CardTitle>Generate Your Success Story</CardTitle>
-                <CardDescription>Enter your name to see a personalized example of our impact.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Your Name</FormLabel>
-                          <FormControl>
-                            <Input placeholder="e.g., Jane Doe" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <Button type="submit" className="w-full" disabled={isLoading}>
-                      {isLoading ? (
-                        <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          Generating...
-                        </>
-                      ) : (
-                        "Generate Story"
-                      )}
-                    </Button>
-                  </form>
-                </Form>
-              </CardContent>
-            </Card>
-
-            {story && (
-              <Card className="mt-8">
-                <CardHeader>
-                  <CardTitle>Your Personalized Success Story</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="whitespace-pre-wrap">{story}</p>
-                </CardContent>
-              </Card>
-            )}
+          <div className="container px-4 md:px-6 max-w-4xl mx-auto">
+            <Accordion type="single" collapsible className="w-full">
+              {successStories.map((story, index) => (
+                <AccordionItem value={`item-${index}`} key={index}>
+                  <AccordionTrigger className="font-headline text-lg hover:no-underline">
+                    {story.client}
+                  </AccordionTrigger>
+                  <AccordionContent className="space-y-4 text-base">
+                    <div>
+                      <h3 className="font-bold text-primary/80 mb-2">The Challenge</h3>
+                      <p className="text-muted-foreground">{story.challenge}</p>
+                    </div>
+                     <div>
+                      <h3 className="font-bold text-primary/80 mb-2">Our Solution</h3>
+                      <p className="text-muted-foreground">{story.solution}</p>
+                    </div>
+                     <div>
+                      <h3 className="font-bold text-primary/80 mb-2">The Outcome</h3>
+                      <p className="text-muted-foreground">{story.outcome}</p>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </section>
       </main>
        <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-muted-foreground">&copy; {new Date().getFullYear()} Vox Bureau. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link href="#" className="text-xs hover:underline underline-offset-4" prefetch={false}>
+          <Link href="/privacy-policy" className="text-xs hover:underline underline-offset-4" prefetch={false}>
             Privacy Policy
           </Link>
-          <Link href="#" className="text-xs hover:underline underline-offset-4" prefetch={false}>
+          <Link href="/terms-of-service" className="text-xs hover:underline underline-offset-4" prefetch={false}>
             Terms of Service
           </Link>
         </nav>
