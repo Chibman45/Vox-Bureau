@@ -1,5 +1,3 @@
-# Firebase Studio
+# VoxPortfolio
 
-This is a NextJS starter in Firebase Studio.
-
-To get started, take a look at src/app/page.tsx.
+This is a Next.js project for Vox Bureau's portfolio website, created in Firebase Studio.
