@@ -67,15 +67,21 @@ export default function Home() {
     <div className="flex flex-col min-h-[100dvh] bg-background">
       <Header />
       <main className="flex-1">
-        <section id="home" className="w-full py-20 md:py-32 lg:py-40 bg-secondary/30">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-              <div className="flex flex-col justify-center space-y-4">
+        <section
+          id="home"
+          className="relative w-full py-20 md:py-32 lg:py-40 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('https://placehold.co/1920x1080.png')" }}
+          data-ai-hint="government building modern architecture"
+        >
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="container relative px-4 md:px-6">
+            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
+              <div className="flex flex-col justify-center space-y-4 text-white">
                 <div className="space-y-2 animate-in fade-in-up duration-500">
-                  <h1 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl xl:text-6xl/none text-primary">
+                  <h1 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl xl:text-6xl/none text-primary-foreground">
                     Expertise in Institutional Communication
                   </h1>
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl animate-in fade-in-up duration-500 delay-200">
+                  <p className="max-w-[600px] text-lg md:text-xl animate-in fade-in-up duration-500 delay-200">
                     Vox Bureau offers expert communication and institutional representation solutions tailored for high-level government bodies and national agencies.
                   </p>
                 </div>
@@ -83,19 +89,11 @@ export default function Home() {
                   <Button size="lg" asChild>
                     <Link href="/#contact">Request a Consultation</Link>
                   </Button>
-                  <Button size="lg" variant="outline" asChild>
+                  <Button size="lg" variant="secondary" asChild>
                     <Link href="/#services">Explore Services</Link>
                   </Button>
                 </div>
               </div>
-              <Image
-                src="https://placehold.co/600x400.png"
-                width="600"
-                height="400"
-                alt="Hero"
-                data-ai-hint="business meeting"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square shadow-lg animate-in fade-in-up duration-500 delay-500"
-              />
             </div>
           </div>
         </section>
@@ -210,5 +208,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
