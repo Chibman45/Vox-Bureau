@@ -23,8 +23,8 @@ export async function sendContactMessage(values: z.infer<typeof formSchema>) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
   const msg = {
-    to: 'chibuzoririemenem6@gmail.com', // This is now set to your email address
-    from: 'contact-form@voxbureau.com', // This needs to be a verified sender in SendGrid
+    to: 'chibuzoririemenem6@gmail.com', // This is your email address
+    from: 'chibuzoririemenem6@gmail.com', // This needs to be a verified sender in SendGrid
     subject: `New Contact Form Submission from ${values.name}`,
     html: `
       <h2>New Inquiry from VoxPortfolio Website</h2>
