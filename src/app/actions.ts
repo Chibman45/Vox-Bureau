@@ -1,6 +1,7 @@
 'use server';
 
 import * as z from 'zod';
+import sgMail from '@sendgrid/mail';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -15,16 +16,31 @@ const formSchema = z.object({
 });
 
 export async function sendContactMessage(values: z.infer<typeof formSchema>) {
-  // Here is where you would integrate your email sending service (e.g., Resend, SendGrid)
-  // For now, we'll just log the data to the console.
-  console.log('New contact form submission:');
-  console.log('Name:', values.name);
-  console.log('Email:', values.email);
-  console.log('Message:', values.message);
+  if (!process.env.SENDGRID_API_KEY) {
+    console.error('SENDGRID_API_KEY is not set.');
+    return { success: false, message: 'Server configuration error.' };
+  }
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-  // Simulate a delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  
-  // You would typically return a success or error object from your email service
-  return { success: true, message: 'Your message has been sent successfully!' };
+  const msg = {
+    to: 'your-email@example.com', // IMPORTANT: Change this to your actual email address
+    from: 'contact-form@voxbureau.com', // This needs to be a verified sender in SendGrid
+    subject: `New Contact Form Submission from ${values.name}`,
+    html: `
+      <h2>New Inquiry from VoxPortfolio Website</h2>
+      <p><strong>Name:</strong> ${values.name}</p>
+      <p><strong>Email:</strong> ${values.email}</p>
+      <hr>
+      <p><strong>Message:</strong></p>
+      <p>${values.message}</p>
+    `,
+  };
+
+  try {
+    await sgMail.send(msg);
+    return { success: true, message: 'Your message has been sent successfully!' };
+  } catch (error) {
+    console.error('SendGrid error:', error);
+    return { success: false, message: 'There was an error sending your message.' };
+  }
 }
