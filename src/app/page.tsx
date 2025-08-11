@@ -113,8 +113,8 @@ export default function Home() {
               {services.map((service) => (
                 <Card key={service.title} className="flex flex-col justify-between shadow-md hover:shadow-xl transition-shadow duration-300">
                   <CardHeader className="flex flex-row items-center gap-4 pb-4">
-                    <div className="bg-primary/10 p-3 rounded-full">
-                      <service.icon className="w-6 h-6 text-primary" />
+                    <div className="bg-accent/10 p-3 rounded-full">
+                      <service.icon className="w-6 h-6 text-accent" />
                     </div>
                     <CardTitle className="font-headline text-xl">{service.title}</CardTitle>
                   </CardHeader>
@@ -139,8 +139,8 @@ export default function Home() {
             <div className="flex flex-col gap-8">
               {whyUsItems.map((item) => (
                 <div key={item.title} className="flex items-start gap-4">
-                  <div className="bg-primary/10 p-3 rounded-full flex-shrink-0">
-                    <item.icon className="w-8 h-8 text-primary" />
+                  <div className="bg-accent/10 p-3 rounded-full flex-shrink-0">
+                    <item.icon className="w-8 h-8 text-accent" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold font-headline">{item.title}</h3>
