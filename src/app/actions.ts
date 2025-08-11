@@ -25,6 +25,7 @@ export async function sendContactMessage(values: z.infer<typeof formSchema>) {
   const msg = {
     to: 'chibuzoririemenem6@gmail.com', // This is your email address
     from: 'chibuzoririemenem6@gmail.com', // This needs to be a verified sender in SendGrid
+    replyTo: values.email, // Add the user's email as the reply-to address
     subject: `New Contact Form Submission from ${values.name}`,
     html: `
       <h2>New Inquiry from VoxPortfolio Website</h2>
@@ -39,8 +40,12 @@ export async function sendContactMessage(values: z.infer<typeof formSchema>) {
   try {
     await sgMail.send(msg);
     return { success: true, message: 'Your message has been sent successfully!' };
-  } catch (error) {
-    console.error('SendGrid error:', error);
+  } catch (error: any) {
+    // Log the detailed error from SendGrid
+    console.error('SendGrid error:', JSON.stringify(error, null, 2));
+    if (error.response) {
+      console.error(error.response.body)
+    }
     return { success: false, message: 'There was an error sending your message.' };
   }
 }
