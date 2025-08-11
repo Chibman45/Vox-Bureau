@@ -19,9 +19,9 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-primary/20 bg-primary text-primary-foreground backdrop-blur supports-[backdrop-filter]:bg-primary/90">
       <div className="container flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2 font-bold text-lg text-primary">
+        <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <Shield className="h-6 w-6" />
           <span className="font-headline">Vox Bureau</span>
         </Link>
@@ -30,21 +30,21 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-primary"
+              className="transition-colors hover:text-primary-foreground/80"
             >
               {link.label}
             </Link>
           ))}
         </nav>
         <div className="hidden md:block">
-            <Button asChild>
+            <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
                 <Link href="/#contact">Get a Quote</Link>
             </Button>
         </div>
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon">
+              <Button variant="outline" size="icon" className="border-primary-foreground/50 hover:bg-primary-foreground/10">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Open navigation menu</span>
               </Button>
@@ -67,7 +67,7 @@ export function Header() {
                     </Link>
                   </SheetClose>
                 ))}
-                 <Button asChild className="mt-4">
+                 <Button asChild className="mt-4 bg-accent hover:bg-accent/90 text-accent-foreground">
                     <SheetClose asChild>
                         <Link href="/#contact">Get a Quote</Link>
                     </SheetClose>
