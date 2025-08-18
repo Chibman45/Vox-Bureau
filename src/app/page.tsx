@@ -95,16 +95,13 @@ export default function Home() {
           id="home"
           className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-center text-center overflow-hidden"
         >
-          {images.map((image, index) => (
-            <Image
-              key={image.src}
-              src={image.src}
-              alt={image.alt}
-              fill
-              className={`object-cover transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
-              priority={index === 0}
-            />
-          ))}
+          <Image
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Office meeting with laptops"
+            fill
+            className="object-cover"
+            priority
+          />
           <div className="absolute inset-0 bg-black/60" />
           <div className="container relative px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
@@ -141,7 +138,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-start justify-center gap-6 py-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-12">
+            <div className="mx-auto grid max-w-5xl items-stretch justify-center gap-6 py-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-12">
               {services.map((service) => (
                 <Card key={service.title} className="flex flex-col justify-between shadow-md hover:shadow-xl transition-shadow duration-300 max-w-md mx-auto">
                   <CardHeader className="flex flex-row items-center gap-4 pb-4">
@@ -207,7 +204,7 @@ export default function Home() {
               </p>
               <div className="space-y-2">
                 <h3 className="font-semibold">Email Us</h3>
-                <p className="text-muted-foreground">contact@voxbureau.com</p>
+                <p className="text-muted-foreground">voxbureau.info@gmail.com</p>
               </div>
                <div className="space-y-2">
                 <h3 className="font-semibold">Our Office</h3>
