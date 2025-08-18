@@ -57,11 +57,11 @@ export default function SuccessStoriesPage() {
     <div className="flex flex-col min-h-[100dvh] bg-background">
       <Header />
       <main className="flex-1">
-        <section className="w-full py-20 md:py-32 lg:py-40 bg-secondary/30">
+        <section className="w-full py-20 md:py-32 lg:py-40 bg-muted/40">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl text-primary">
+                <h1 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl text-primary-foreground">
                   Client Success Stories
                 </h1>
                 <p className="max-w-[800px] text-muted-foreground md:text-xl">
@@ -77,7 +77,7 @@ export default function SuccessStoriesPage() {
             {successStories.map((story, index) => (
               <Card key={index} className="shadow-md hover:shadow-xl transition-shadow duration-300">
                 <CardHeader>
-                  <CardTitle className="font-headline text-2xl text-primary">{story.client}</CardTitle>
+                  <CardTitle className="font-headline text-2xl text-accent">{story.client}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>

@@ -2,6 +2,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import {
   Award,
   Briefcase,
@@ -66,22 +67,45 @@ const whyUsItems = [
 ];
 
 export default function Home() {
+  const images = [
+    {
+      src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      alt: "Office meeting with laptops",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      alt: "Professionals collaborating",
+    },
+  ];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <div className="flex flex-col min-h-[100dvh] bg-background">
       <Header />
       <main className="flex-1">
         <section
           id="home"
-          className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-center text-center"
+          className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-center text-center overflow-hidden"
         >
-          <Image
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Office meeting with laptops"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/50" />
+          {images.map((image, index) => (
+            <Image
+              key={image.src}
+              src={image.src}
+              alt={image.alt}
+              fill
+              className={`object-cover transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
+              priority={index === 0}
+            />
+          ))}
+          <div className="absolute inset-0 bg-black/60" />
           <div className="container relative px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
               <div className="flex flex-col justify-center space-y-4 text-white text-left">
@@ -122,7 +146,7 @@ export default function Home() {
                 <Card key={service.title} className="flex flex-col justify-between shadow-md hover:shadow-xl transition-shadow duration-300">
                   <CardHeader className="flex flex-row items-center gap-4 pb-4">
                     <div className="bg-primary/10 p-3 rounded-full">
-                      <service.icon className="w-6 h-6 text-primary" />
+                      <service.icon className="w-6 h-6 text-accent" />
                     </div>
                     <CardTitle className="text-xl">{service.title}</CardTitle>
                   </CardHeader>
@@ -148,7 +172,7 @@ export default function Home() {
               {whyUsItems.map((item) => (
                 <div key={item.title} className="flex items-start gap-4">
                   <div className="bg-primary/10 p-3 rounded-full flex-shrink-0">
-                    <item.icon className="w-8 h-8 text-primary" />
+                    <item.icon className="w-8 h-8 text-accent" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold">{item.title}</h3>
@@ -168,7 +192,7 @@ export default function Home() {
             <p className="mx-auto max-w-[700px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mt-4">
               Our commitment to excellence has earned us the trust of high-level government bodies and national agencies. See the impact we've made.
             </p>
-            <Button variant="default" size="lg" asChild className="mt-8">
+            <Button variant="default" size="lg" asChild className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground">
               <Link href="/success-stories">View Success Stories</Link>
             </Button>
           </div>

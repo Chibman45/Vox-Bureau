@@ -4,7 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'VoxPortfolio',
+  title: 'Vox-P',
   description:
     'Expert communication and institutional representation solutions for high-level government bodies and national agencies.',
 };

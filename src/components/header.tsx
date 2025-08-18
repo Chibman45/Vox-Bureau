@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Moon, Sun } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,36 +16,26 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Moon, Sun } from "lucide-react";
 
 const Logo = () => (
   <svg
     width="24"
     height="24"
-    viewBox="0 0 24 24"
+    viewBox="0 0 44 42"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="h-8 w-8"
+    className="h-8 w-8 text-foreground"
   >
     <path
-      d="M6.5 2H17.5L22 12L12 22L2 12L6.5 2Z"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
+      d="M21.921 34.25L13.111 1.00003L4.35105 34.25H0.999999L13.111 0L25.222 34.25H21.921Z"
+      fill="currentColor"
     />
     <path
-      d="M12 22L17.5 12L22 22H12Z"
+      d="M43.089 34.25L34.279 1.00003L25.519 34.25H22.168L34.279 0L46.39 34.25H43.089Z"
       fill="currentColor"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
     />
-    <path
-      d="M12 22L6.5 12L2 22H12Z"
-      fill="currentColor"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
-    />
+    <ellipse cx="34.022" cy="38.75" rx="3.35" ry="3.25" fill="hsl(var(--accent))" />
   </svg>
 );
 
@@ -90,8 +80,8 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <Logo />
           <span className="font-headline">
-            <span className="text-primary">VOX</span>
-            <span> Bureau</span>
+            <span className="text-foreground">VOX</span>
+            <span className="text-muted-foreground"> Bureau</span>
           </span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
@@ -99,7 +89,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-foreground/80"
+              className="transition-colors hover:text-foreground/80 text-muted-foreground"
             >
               {link.label}
             </Link>
@@ -126,7 +116,8 @@ export function Header() {
                     <Link href="/" className="flex items-center gap-2 font-bold text-lg mb-6">
                         <Logo />
                         <span className="font-headline">
-                          <span className="text-primary">VOX</span> Bureau
+                          <span className="text-foreground">VOX</span>
+                          <span className="text-muted-foreground"> Bureau</span>
                         </span>
                     </Link>
                   </SheetClose>
