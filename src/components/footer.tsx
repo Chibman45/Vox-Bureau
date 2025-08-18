@@ -57,7 +57,6 @@ export function Footer() {
                     <h3 className="font-semibold text-foreground">Resources</h3>
                     <Link href="/#why-us" prefetch={false}>Why Us</Link>
                     <Link href="/success-stories" prefetch={false}>Case Studies</Link>
-                    <Link href="/#contact" prefetch={false}>FAQ</Link>
                 </div>
                 <div className="grid gap-1">
                     <h3 className="font-semibold text-foreground">Legal</h3>
