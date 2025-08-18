@@ -141,9 +141,9 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-6 py-12 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 lg:gap-12">
+            <div className="mx-auto grid max-w-5xl items-start justify-center gap-6 py-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-12">
               {services.map((service) => (
-                <Card key={service.title} className="flex flex-col justify-between shadow-md hover:shadow-xl transition-shadow duration-300">
+                <Card key={service.title} className="flex flex-col justify-between shadow-md hover:shadow-xl transition-shadow duration-300 max-w-md mx-auto">
                   <CardHeader className="flex flex-row items-center gap-4 pb-4">
                     <div className="bg-primary/10 p-3 rounded-full">
                       <service.icon className="w-6 h-6 text-accent" />
