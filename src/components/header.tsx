@@ -14,19 +14,19 @@ const Logo = () => (
   <svg
     width="24"
     height="24"
-    viewBox="0 0 24 24"
+    viewBox="0 0 44 42"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6"
+    className="h-8 w-8 text-primary-foreground"
   >
     <path
-      d="M4 3H8V15C8 18.3137 10.6863 21 14 21C16.2063 21 18.1031 19.8392 19.1839 18"
-      stroke="currentColor"
-      strokeWidth="4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      d="M24.5136 10.5504L22.4072 10.5607L22.3892 11.9104C22.3692 13.4083 22.3416 13.6212 22.0568 14.4761C21.347 16.6063 19.5702 18.3867 17.2835 19.2587C16.8374 19.4289 16.237 19.6028 16.1919 19.575C16.1744 19.5642 16.16 17.5313 16.16 15.0576L16.16 10.56L13.94 10.56L11.72 10.56L11.72 17.0968L11.72 23.6336L11.83 23.6559C12.5731 23.806 14.8507 23.8354 15.8 23.707C21.4968 22.9365 25.7971 19.1253 26.7077 14.04C26.8774 13.0923 26.8483 10.6965 26.6657 10.5713C26.6405 10.5541 25.6721 10.5447 24.5136 10.5504Z"
+      fill="currentColor"
     />
-    <circle cx="20.5" cy="14.5" r="2.5" fill="hsl(var(--accent))" />
+    <path
+      d="M26.52 20.464C25.4621 20.7467 25.1377 22.0177 25.922 22.807C26.7032 23.5931 28.0948 23.1136 28.2451 22.0065C28.3799 21.0128 27.4794 20.2077 26.52 20.464Z"
+      fill="hsl(var(--accent))"
+    />
   </svg>
 );
 
@@ -44,7 +44,10 @@ export function Header() {
       <div className="container flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <Logo />
-          <span className="font-headline">Vox Bureau</span>
+          <span className="font-headline">
+            <span className="text-accent">VOX</span>
+            <span className="text-white"> Bureau</span>
+          </span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navLinks.map((link) => (
@@ -75,7 +78,9 @@ export function Header() {
                 <SheetClose asChild>
                   <Link href="/" className="flex items-center justify-center gap-2 font-bold text-lg text-primary mb-6">
                       <Logo />
-                      <span className="font-headline">Vox Bureau</span>
+                      <span className="font-headline">
+                        <span className="text-accent">VOX</span> Bureau
+                      </span>
                   </Link>
                 </SheetClose>
                 {navLinks.map((link) => (
