@@ -20,18 +20,13 @@ const Logo = () => (
     className="h-6 w-6"
   >
     <path
-      d="M6 6H10V14C10 16.2091 8.20914 18 6 18H6C3.79086 18 2 16.2091 2 14V6H6Z"
-      transform="translate(4, 3)"
-      fill="currentColor"
-    />
-    <path
-      d="M14 6C14 10.4183 10.4183 14 6 14"
+      d="M4 3H8V15C8 18.3137 10.6863 21 14 21C16.2063 21 18.1031 19.8392 19.1839 18"
       stroke="currentColor"
       strokeWidth="4"
       strokeLinecap="round"
-      transform="translate(4, 3)"
+      strokeLinejoin="round"
     />
-    <circle cx="19.5" cy="14.5" r="2.5" fill="hsl(var(--accent))" />
+    <circle cx="20.5" cy="14.5" r="2.5" fill="hsl(var(--accent))" />
   </svg>
 );
 
