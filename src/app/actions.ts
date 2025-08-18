@@ -43,7 +43,7 @@ export async function sendContactMessage(values: z.infer<typeof formSchema>) {
   } catch (error: any) {
     // Log the detailed error from SendGrid
     console.error('SendGrid error:', JSON.stringify(error, null, 2));
-    if (error.response) {
+    if (error.response && error.response.body) {
       console.error(error.response.body)
     }
     return { success: false, message: 'There was an error sending your message.' };
