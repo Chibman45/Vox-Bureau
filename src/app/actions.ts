@@ -1,7 +1,7 @@
 'use server';
 
 import * as z from 'zod';
-import sgMail from '@sendgrid/mail';
+import nodemailer from 'nodemailer';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -16,16 +16,25 @@ const formSchema = z.object({
 });
 
 export async function sendContactMessage(values: z.infer<typeof formSchema>) {
-  if (!process.env.SENDGRID_API_KEY) {
-    console.error('SENDGRID_API_KEY is not set.');
+  const { GMAIL_EMAIL, GMAIL_APP_PASSWORD } = process.env;
+
+  if (!GMAIL_EMAIL || !GMAIL_APP_PASSWORD) {
+    console.error('Gmail credentials are not set in environment variables.');
     return { success: false, message: 'Server configuration error.' };
   }
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-  const msg = {
-    to: 'chibuzoririemenem6@gmail.com', // This is your email address
-    from: 'chibuzoririemenem6@gmail.com', // This needs to be a verified sender in SendGrid
-    replyTo: values.email, // Add the user's email as the reply-to address
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: GMAIL_EMAIL,
+      pass: GMAIL_APP_PASSWORD,
+    },
+  });
+
+  const mailOptions = {
+    from: `"${values.name}" <${GMAIL_EMAIL}>`, // Sender name and address
+    to: GMAIL_EMAIL, // Your receiving email address
+    replyTo: values.email, // User's email address
     subject: `New Contact Form Submission from ${values.name}`,
     html: `
       <h2>New Inquiry from VoxPortfolio Website</h2>
@@ -38,14 +47,10 @@ export async function sendContactMessage(values: z.infer<typeof formSchema>) {
   };
 
   try {
-    await sgMail.send(msg);
+    await transporter.sendMail(mailOptions);
     return { success: true, message: 'Your message has been sent successfully!' };
   } catch (error: any) {
-    // Log the detailed error from SendGrid
-    console.error('SendGrid error:', JSON.stringify(error, null, 2));
-    if (error.response && error.response.body) {
-      console.error(error.response.body)
-    }
+    console.error('Nodemailer error:', JSON.stringify(error, null, 2));
     return { success: false, message: 'There was an error sending your message.' };
   }
 }
