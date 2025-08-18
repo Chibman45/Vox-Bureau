@@ -81,8 +81,9 @@ export default function SuccessStoriesPage() {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
-                    <h3 className="font-bold text-lg text-primary/90 mb-2">The Challenge</h3>
+                    <h3 className="font-bold text-lg text-foreground mb-2">The Challenge</h3>
                     <p className="text-muted-foreground leading-relaxed">{story.challenge}</p>
+
                   </div>
                   <Separator />
                   <div>
