@@ -1,5 +1,4 @@
 
-
 "use client";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,8 +23,6 @@ import {
 import { ContactForm } from "@/components/contact-form";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
 
 const services = [
   {
@@ -68,22 +65,7 @@ const whyUsItems = [
   },
 ];
 
-const backgroundImages = [
-  { src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Office meeting with laptops' },
-  { src: 'https://storage.googleapis.com/aai-sit-v3-prod-v2-assets/clv6i3hcs00052d6a50q5t54x/user_-267923795328905391/cly07b46q0032l70o7v4w24i6/cly07b53w0033l70oeh2a912l.png', alt: 'Modern architectural building' }
-];
-
 export default function Home() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
-    }, 5000); // Change image every 5 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="flex flex-col min-h-[100dvh] bg-background">
       <Header />
@@ -92,19 +74,13 @@ export default function Home() {
           id="home"
           className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-center text-center"
         >
-          {backgroundImages.map((image, index) => (
-            <Image
-              key={index}
-              src={image.src}
-              alt={image.alt}
-              fill
-              className={cn(
-                "object-cover transition-opacity duration-1000 ease-in-out",
-                index === currentImageIndex ? "opacity-100" : "opacity-0"
-              )}
-              priority={index === 0} // Preload the first image
-            />
-          ))}
+          <Image
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Office meeting with laptops"
+            fill
+            className="object-cover"
+            priority
+          />
           <div className="absolute inset-0 bg-black/50" />
           <div className="container relative px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
@@ -230,4 +206,3 @@ export default function Home() {
     </div>
   );
 }
-
