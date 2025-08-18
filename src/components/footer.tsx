@@ -66,7 +66,7 @@ export function Footer() {
                 <div className="grid gap-1">
                     <h3 className="font-semibold text-foreground">Contact</h3>
                     <Link href="/#contact" prefetch={false}>Contact Us</Link>
-                    <Link href="#" prefetch={false}>Support</Link>
+                    <Link href="/#contact" prefetch={false}>Support</Link>
                 </div>
             </div>
              <div className="container max-w-7xl mt-8 flex justify-between items-center text-xs">
