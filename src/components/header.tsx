@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Shield } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -9,6 +9,32 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
+
+const Logo = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6"
+  >
+    <path
+      d="M6 6H10V14C10 16.2091 8.20914 18 6 18H6C3.79086 18 2 16.2091 2 14V6H6Z"
+      transform="translate(4, 3)"
+      fill="currentColor"
+    />
+    <path
+      d="M14 6C14 10.4183 10.4183 14 6 14"
+      stroke="currentColor"
+      strokeWidth="4"
+      strokeLinecap="round"
+      transform="translate(4, 3)"
+    />
+    <circle cx="19.5" cy="14.5" r="2.5" fill="hsl(var(--accent))" />
+  </svg>
+);
+
 
 export function Header() {
   const navLinks = [
@@ -22,7 +48,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-primary/20 bg-primary text-primary-foreground backdrop-blur supports-[backdrop-filter]:bg-primary/90">
       <div className="container flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-          <Shield className="h-6 w-6" />
+          <Logo />
           <span className="font-headline">Vox Bureau</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
@@ -53,7 +79,7 @@ export function Header() {
               <div className="flex flex-col gap-6 pt-12 text-center">
                 <SheetClose asChild>
                   <Link href="/" className="flex items-center justify-center gap-2 font-bold text-lg text-primary mb-6">
-                      <Shield className="h-6 w-6" />
+                      <Logo />
                       <span className="font-headline">Vox Bureau</span>
                   </Link>
                 </SheetClose>
