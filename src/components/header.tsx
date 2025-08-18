@@ -22,20 +22,19 @@ const Logo = () => (
   <svg
     width="24"
     height="24"
-    viewBox="0 0 44 42"
+    viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     className="h-8 w-8 text-foreground"
   >
     <path
-      d="M21.921 34.25L13.111 1.00003L4.35105 34.25H0.999999L13.111 0L25.222 34.25H21.921Z"
-      fill="currentColor"
+      d="M4 4C4 12 10 14 12 20C14 14 20 12 20 4"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
-    <path
-      d="M43.089 34.25L34.279 1.00003L25.519 34.25H22.168L34.279 0L46.39 34.25H43.089Z"
-      fill="currentColor"
-    />
-    <ellipse cx="34.022" cy="38.75" rx="3.35" ry="3.25" fill="hsl(var(--accent))" />
+    <circle cx="18" cy="18" r="2" fill="hsl(var(--accent))" />
   </svg>
 );
 
