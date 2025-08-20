@@ -106,7 +106,7 @@ export default function Home() {
           <div className="container relative px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
               <div className="flex flex-col justify-center space-y-4 text-white text-left">
-                <div className="space-y-2 animate-in fade-in-up duration-500">
+                <div className="space-y-2 animate-in fade-in slide-in-from-top-4 duration-1000">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
                     Expertise in Institutional Communication
                   </h1>
@@ -114,7 +114,7 @@ export default function Home() {
                     Vox Bureau offers expert communication and institutional representation solutions tailored for high-level government bodies and national agencies.
                   </p>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row animate-in fade-in-up duration-500 delay-200">
+                <div className="flex flex-col gap-2 min-[400px]:flex-row animate-in fade-in slide-in-from-top-8 duration-1000 delay-200">
                   <Button size="lg" asChild>
                     <Link href="/#contact">Request a Consultation</Link>
                   </Button>
