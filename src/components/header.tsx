@@ -29,11 +29,11 @@ const Logo = () => (
     >
       <path
         d="M4 4H8V20H4V4Z"
-        fill="hsl(var(--foreground))"
+        fill="white"
       />
       <path
         d="M8 4H12C16.4183 4 20 7.58172 20 12V20H16V12C16 9.79086 14.2091 8 12 8H8V4Z"
-        fill="hsl(var(--foreground))"
+        fill="white"
       />
       <circle cx="20" cy="20" r="3" fill="hsl(var(--accent))" />
     </svg>
@@ -45,7 +45,7 @@ const ThemeToggle = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
+        <Button variant="outline" size="icon" className="text-foreground">
           <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>
@@ -75,13 +75,13 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-gray-800 text-white">
       <div className="container flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <Logo />
           <span className="font-headline">
-            <span className="text-foreground">VOX</span>
-            <span className="text-muted-foreground"> Bureau</span>
+            <span className="text-white">VOX</span>
+            <span className="text-gray-300"> Bureau</span>
           </span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
@@ -89,7 +89,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-foreground/80 text-muted-foreground"
+              className="transition-colors hover:text-white/80 text-gray-300"
             >
               {link.label}
             </Link>
@@ -105,7 +105,7 @@ export function Header() {
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon">
+                <Button variant="outline" size="icon" className="text-foreground">
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Open navigation menu</span>
                 </Button>
