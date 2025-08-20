@@ -67,25 +67,43 @@ const whyUsItems = [
 ];
 
 export default function Home() {
-  const images = [
+    const heroImages = [
     {
-      src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Office meeting with laptops",
+      src: "https://images.unsplash.com/photo-1531123414780-f74242c2b052?q=80&w=2070&auto=format&fit=crop",
+      alt: "Professional black woman smiling in an office",
+      "data-ai-hint": "professional woman"
     },
     {
-      src: "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Professionals collaborating",
+      src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2069&auto=format&fit=crop",
+      alt: "Black woman in a business suit leading a meeting",
+      "data-ai-hint": "business meeting"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?q=80&w=2070&auto=format&fit=crop",
+      alt: "Group of diverse professionals collaborating",
+      "data-ai-hint": "team collaboration"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
+      alt: "Black professional man presenting at a whiteboard",
+      "data-ai-hint": "man presenting"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop",
+      alt: "Two black professionals in a discussion",
+      "data-ai-hint": "business discussion"
     },
   ];
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); // Change image every 5 seconds
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 10000); // Change image every 10 seconds
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [heroImages.length]);
 
   return (
     <div className="flex flex-col min-h-[100dvh] bg-background">
@@ -95,13 +113,17 @@ export default function Home() {
           id="home"
           className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-center text-center overflow-hidden"
         >
-          <Image
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Office meeting with laptops"
-            fill
-            className="object-cover"
-            priority
-          />
+          {heroImages.map((image, index) => (
+            <Image
+              key={index}
+              src={image.src}
+              alt={image.alt}
+              fill
+              className={`object-cover transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? "opacity-100" : "opacity-0"}`}
+              priority={index === 0}
+              data-ai-hint={image['data-ai-hint']}
+            />
+          ))}
           <div className="absolute inset-0 bg-black/60" />
           <div className="container relative px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
