@@ -81,12 +81,14 @@ export default function Home() {
     {
       src: "https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?q=80&w=2070&auto=format&fit=crop",
       alt: "Group of diverse professionals collaborating",
-      "data-ai-hint": "team collaboration"
+      "data-ai-hint": "team collaboration",
+      position: "object-center"
     },
     {
       src: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
       alt: "Black professional man presenting at a whiteboard",
-      "data-ai-hint": "man presenting"
+      "data-ai-hint": "man presenting",
+      position: "object-center"
     },
     {
       src: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop",
@@ -119,7 +121,7 @@ export default function Home() {
               src={image.src}
               alt={image.alt}
               fill
-              className={`object-cover transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? "opacity-100" : "opacity-0"}`}
+              className={`object-cover transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? "opacity-100" : "opacity-0"} ${image.position || ''}`}
               priority={index === 0}
               data-ai-hint={image['data-ai-hint']}
             />
