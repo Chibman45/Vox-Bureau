@@ -26,11 +26,7 @@ const Logo = () => (
 
 
 export function Footer() {
-    const [year, setYear] = React.useState(new Date().getFullYear());
-
-    React.useEffect(() => {
-        setYear(new Date().getFullYear());
-    }, []);
+    const year = new Date().getFullYear();
     
     return (
         <footer className="bg-muted p-6 md:py-12 w-full text-muted-foreground">
