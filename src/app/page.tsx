@@ -11,6 +11,10 @@ import {
   ShieldCheck,
   Target,
   Presentation,
+  Building,
+  HeartHandshake,
+  MessageCircle,
+  Scale,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -27,24 +31,49 @@ import { Footer } from "@/components/footer";
 
 const services = [
   {
-    icon: Presentation,
-    title: "Professional Speeches & Presentations",
-    description: "Executive-level speechwriting and presentation development for conferences, briefings, and public functions.",
+    icon: Scale,
+    title: "Governance, Risk & Compliance (GRC) Advisory",
+    items: [
+      "Compliance Experience Design",
+      "Compliance Management",
+      "Institutional Reputation Risk Insurance Advisory",
+      "Regulatory & Legal Advisory",
+      "Governance Structuring for Businesses",
+    ],
   },
   {
-    icon: Briefcase,
-    title: "Proxy Representation & Meeting Attendance",
-    description: "Vox Bureau acts on behalf of top-level executives during board meetings and inter-agency sessions, providing detailed reports.",
+    icon: HeartHandshake,
+    title: "Stakeholder Engagement & Client Reputation Management (CRM)",
+    items: [
+      "Stakeholder Communication Strategies",
+      "Reputation & Crisis Management",
+      "Public Relations (PR) Campaigns",
+      "Community & Public Sector Engagement",
+      "Investor & Shareholder Relations",
+      "Customer Relations Management",
+      "Client Maintenance & Retention Strategies",
+    ],
   },
   {
-    icon: Handshake,
-    title: "Client & Stakeholder Relationship Management",
-    description: "Structured communication, reporting, and follow-up mechanisms for partner organizations and private sector investors.",
+    icon: MessageCircle,
+    title: "Corporate Communication & Specialized Advisory",
+    items: [
+      "Specialized Communication for Leadership",
+      "Speechwriting & Presentation Design",
+      "Proposal & Business Document Drafting",
+      "Corporate Advisory & Strategic Communication",
+      "Proxy Representation at Meetings",
+      "Detailed Proxy Meeting Reports",
+    ],
   },
   {
-    icon: FileText,
-    title: "Proposal Writing & Compliance Communication",
-    description: "Grant proposals, inter-agency reports, performance briefs, and compliance-related communication support.",
+    icon: Building,
+    title: "Public Sector & Financial Advisory",
+    items: [
+      "Public Sector Financial & Operational Advisory",
+      "Policy Advisory & Government Relations",
+      "Institutional Partnerships & Development Support",
+    ],
   },
 ];
 
@@ -162,17 +191,21 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-stretch justify-center gap-6 py-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-12">
+            <div className="mx-auto grid max-w-7xl items-stretch justify-center gap-8 py-12 sm:grid-cols-1 md:grid-cols-2">
               {services.map((service) => (
-                <Card key={service.title} className="flex flex-col justify-between shadow-md hover:shadow-xl transition-shadow duration-300">
+                <Card key={service.title} className="flex flex-col shadow-md hover:shadow-xl transition-shadow duration-300">
                   <CardHeader className="flex flex-row items-center gap-4 pb-4">
                     <div className="bg-primary/10 p-3 rounded-full">
-                      <service.icon className="w-6 h-6 text-accent" />
+                      <service.icon className="w-8 h-8 text-accent" />
                     </div>
                     <CardTitle className="text-xl">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">{service.description}</p>
+                    <ul className="space-y-2 text-muted-foreground list-disc list-inside">
+                      {service.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
                   </CardContent>
                 </Card>
               ))}
