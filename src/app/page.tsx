@@ -271,7 +271,7 @@ export default function Home({
               </div>
                <div className="space-y-2">
                 <h3 className="font-semibold">Our Office</h3>
-                <p className="text-muted-foreground">No 14 quary Rd Muko Dutse Alhaji, Abuja</p>
+                <p className="text-muted-foreground">No 14 Quarry Rd Bmuko Dutse Alhaji, Abuja</p>
               </div>
             </div>
             <Card>
