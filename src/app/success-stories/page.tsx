@@ -52,7 +52,13 @@ const successStories = [
 ];
 
 
-export default function SuccessStoriesPage() {
+export default function SuccessStoriesPage({
+  params,
+  searchParams,
+}: {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   return (
     <div className="flex flex-col min-h-[100dvh] bg-background">
       <Header />

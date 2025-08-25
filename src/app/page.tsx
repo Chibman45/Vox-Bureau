@@ -95,7 +95,13 @@ const whyUsItems = [
   },
 ];
 
-export default function Home() {
+export default function Home({
+  params,
+  searchParams,
+}: {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
     const heroImages = [
     {
       src: "https://images.unsplash.com/photo-1531123414780-f74242c2b052?q=80&w=2070&auto=format&fit=crop",
