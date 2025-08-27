@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: 'Vox-P',
   description:
     'Expert communication and institutional representation solutions for high-level government bodies and national agencies.',
+  icons: {
+    icon: '/logo.svg',
+  },
 };
 
 export default function RootLayout({
