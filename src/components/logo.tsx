@@ -26,15 +26,12 @@ const LogoSVG = ({
     >
       <defs>
         <clipPath id="clip-square">
-          <rect x="48" y="32" width="360" height="360" rx="0" />
+          <rect x="48" y="32" width="360" height="360" />
         </clipPath>
       </defs>
       <g clipPath="url(#clip-square)">
         <path
-          d={`
-M 48 32
-A 384 384 0 0 1 432 416
-`}
+          d="M 48 32 A 384 384 0 0 1 432 416"
           fill="none"
           stroke={dark}
           strokeWidth="200"
