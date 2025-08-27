@@ -1,17 +1,22 @@
 <svg
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
+  viewBox="0 0 480 480"
+  width="480"
+  height="480"
   xmlns="http://www.w3.org/2000/svg"
 >
-  <path
-    d="M4 4H8V20H4V4Z"
-    fill="#24292e"
-  />
-  <path
-    d="M8 4H12C16.4183 4 20 7.58172 20 12V20H16V12C16 9.79086 14.2091 8 12 8H8V4Z"
-    fill="#24292e"
-  />
-  <circle cx="20" cy="20" r="3" fill="#16a34a" />
+  <defs>
+    <clipPath id="clip-square">
+      <rect x="48" y="32" width="360" height="360" rx="0" />
+    </clipPath>
+  </defs>
+  <g clipPath="url(#clip-square)">
+    <path
+      d="M 48 32 A 384 384 0 0 1 432 416"
+      fill="none"
+      stroke="black"
+      strokeWidth="200"
+      strokeLinecap="butt"
+    />
+  </g>
+  <circle cx="408" cy="392" r="32" fill="#50C878" />
 </svg>

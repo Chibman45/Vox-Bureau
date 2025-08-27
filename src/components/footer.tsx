@@ -2,27 +2,11 @@
 
 import Link from "next/link";
 import React from "react";
+import LogoSVG from "./logo";
 
 const Logo = () => (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-8 w-8 rotate-180"
-    >
-      <path
-        d="M4 4H8V20H4V4Z"
-        fill="hsl(var(--foreground))"
-      />
-      <path
-        d="M8 4H12C16.4183 4 20 7.58172 20 12V20H16V12C16 9.79086 14.2091 8 12 8H8V4Z"
-        fill="hsl(var(--foreground))"
-      />
-      <circle cx="20" cy="20" r="3" fill="hsl(var(--accent))" />
-    </svg>
-  );
+  <LogoSVG size={32} />
+);
 
 
 export function Footer() {
