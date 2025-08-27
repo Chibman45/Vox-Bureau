@@ -271,11 +271,7 @@ export default function Home({
               </div>
                <div className="space-y-2">
                 <h3 className="font-semibold">Our Office</h3>
-<<<<<<< HEAD
                 <p className="text-muted-foreground">No 14 Quarry Rd Bmuko Dutse Alhaji, Abuja</p>
-=======
-                <p className="text-muted-foreground">No 14 Quary Rd Bmuko Dutse Alhaji, Abuja</p>
->>>>>>> ba88a74 (Implement vercel analytics)
               </div>
             </div>
             <Card>
