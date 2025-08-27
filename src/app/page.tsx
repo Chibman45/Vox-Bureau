@@ -173,7 +173,7 @@ export default function Home({
                     Vox Bureau offers expert communication and institutional representation solutions tailored for high-level government bodies and national agencies.
                   </p>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row animate-in fade-in slide-in-from-top-8 duration-1000 delay-200">
+                <div className="flex flex-col gap-2 sm:flex-row animate-in fade-in slide-in-from-top-8 duration-1000 delay-200">
                   <Button size="lg" asChild>
                     <Link href="/#contact">Request a Consultation</Link>
                   </Button>
