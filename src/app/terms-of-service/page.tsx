@@ -1,7 +1,13 @@
-
 import Link from "next/link";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import type { Metadata } from 'next';
+
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description: "Review the Terms of Service for using the Vox Bureau website and engaging with our services. Understand your rights and obligations.",
+};
 
 export default function TermsOfService({
   params,
@@ -44,7 +50,7 @@ export default function TermsOfService({
               Our Site and Services are provided on an "AS IS" and "AS AVAILABLE" basis. While we strive to provide accurate and timely information, we make no warranties, expressed or implied, regarding the operation of our site or the information, content, or materials included.
             </p>
             <p>
-              To the fullest extent permissible by law, Vox Bureau disclaims all warranties. We will not be liable for any damages of any kind arising from the use of this site, including, but not limited to direct, indirect, incidental, punitive, and consequential damages.
+              To the fullest extent permissible by law, Vox Bureau disclaims all warranties. We will not be liable for any damages of any kind arising from the use of this site, including, but not to direct, indirect, incidental, punitive, and consequential damages.
             </p>
 
             <h2 className="text-2xl font-semibold text-foreground pt-4">6. Governing Law</h2>

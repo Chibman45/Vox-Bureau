@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import type { Metadata } from 'next';
 import { Header } from "@/components/header";
 import {
   Card,
@@ -11,6 +12,13 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/footer";
+
+
+export const metadata: Metadata = {
+  title: "Success Stories",
+  description: "Discover how Vox Bureau has helped public institutions overcome their most pressing communication and representation challenges through our expert advisory services.",
+};
+
 
 const successStories = [
   {
