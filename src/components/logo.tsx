@@ -24,21 +24,15 @@ const LogoSVG = ({
       aria-label="Logo"
       {...rest}
     >
-      <defs>
-        <clipPath id="clip-square">
-          <rect x="48" y="32" width="360" height="360" />
-        </clipPath>
-      </defs>
-      <g clipPath="url(#clip-square)">
-        <path
-          d="M 48 32 A 384 384 0 0 1 432 416"
-          fill="none"
-          stroke={dark}
-          strokeWidth="200"
-          strokeLinecap="butt"
-        />
-      </g>
-      <circle cx="408" cy="392" r="32" fill={accent} />
+      <path
+        d="M 64 64 L 192 320 L 448 96"
+        fill="none"
+        stroke={dark}
+        strokeWidth="96"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+       />
+      <circle cx="416" cy="96" r="32" fill={accent} />
     </svg>
   );
 };
