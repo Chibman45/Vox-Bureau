@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description:
     'Expert communication and institutional representation solutions for high-level government bodies and national agencies.',
   icons: {
-    icon: '/logo.svg',
+    icon: '/image.svg',
   },
 };
 

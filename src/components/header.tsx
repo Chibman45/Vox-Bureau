@@ -20,11 +20,11 @@ import { Moon, Sun } from "lucide-react";
 import LogoSVG from "./logo";
 
 const Logo = () => (
-  <LogoSVG size={32} dark="white" accent="hsl(var(--accent))" />
+  <LogoSVG width={32} height={32} />
 );
 
 const MobileLogo = () => (
-  <LogoSVG size={32} dark="hsl(var(--foreground))" accent="hsl(var(--accent))" />
+  <LogoSVG width={32} height={32} />
 )
 
 const ThemeToggle = () => {
