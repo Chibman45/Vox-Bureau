@@ -25,14 +25,10 @@ const LogoSVG = ({
       {...rest}
     >
       <path
-        d="M 64 64 L 192 320 L 448 96"
-        fill="none"
-        stroke={dark}
-        strokeWidth="96"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M 100 100 L 100 300 C 100 300 100 400 200 400 L 300 400 C 400 400 400 300 400 300 L 400 220 L 300 220 L 300 300 C 300 300 300 320 250 320 L 200 320 C 180 320 180 300 180 300 L 180 100 Z"
+        fill={dark}
        />
-      <circle cx="416" cy="96" r="32" fill={accent} />
+      <circle cx="360" cy="400" r="40" fill={accent} />
     </svg>
   );
 };
