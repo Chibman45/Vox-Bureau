@@ -20,7 +20,14 @@ import { Moon, Sun } from "lucide-react";
 import LogoSVG from "./logo";
 
 const Logo = () => (
-  <LogoSVG width={32} height={32} />
+  <>
+    <div className="hidden md:block">
+      <LogoSVG width={40} height={40} />
+    </div>
+    <div className="md:hidden">
+      <LogoSVG width={32} height={32} />
+    </div>
+  </>
 );
 
 const MobileLogo = () => (

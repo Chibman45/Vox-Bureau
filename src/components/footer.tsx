@@ -5,7 +5,7 @@ import React from "react";
 import LogoSVG from "./logo";
 
 const Logo = () => (
-  <LogoSVG size={32} />
+  <LogoSVG width={32} height={32} />
 );
 
 
